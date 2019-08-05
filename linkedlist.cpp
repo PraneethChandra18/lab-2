@@ -114,7 +114,15 @@ void search(int x, int y)
     }
     temp = temp -> next;
   }
-  cout << n;
+  if(n>0)
+  {
+   cout << "True" << "\n" << n << endl; 
+  }
+  if(n==0)
+  {
+   cout << "False" << endl; 
+  }
+
   return ;
 }
 
