@@ -1,8 +1,6 @@
+
 #include<bits/stdc++.h>
 #include<cmath>
-#include <iostream>
-#include <map>
-#include <algorithm>
 
 using namespace std;
 
@@ -57,20 +55,24 @@ void Del(int x, int y)
   Node *temp = head;
   Node *temp1 = NULL;
   Node *prev = NULL;
-  while(temp -> pt.data1 != x && temp -> pt.data2 !=y && temp != NULL)
+  while(temp != NULL)
   {
+    if(temp -> pt.data1 == x && temp -> pt.data2 == y)
+    {
+      break;
+    }
     prev=temp;
     temp = temp -> next;
+  }
+  if(temp == NULL)
+  {
+    cout << "-1"<<endl;
+    return ;
   }
   temp1 = temp -> next;
   if(temp == head)
   {
     DelFirst();
-    return ;
-  }
-  if(temp == NULL)
-  {
-    cout << "-1";
     return ;
   }
   delete(temp);
@@ -93,10 +95,12 @@ void search(float d)
   {
     if(distance(temp -> pt.data1 , temp -> pt.data2) <= d)
     {
-      cout << "(" << temp -> pt.data1 << "," << temp -> pt.data2 << ")" << endl;
+      n++;
     }
     temp = temp -> next;
   }
+  if(n==0)n--;
+  cout << n << endl;
 }
 
 void search(int x, int y)
@@ -116,11 +120,11 @@ void search(int x, int y)
   }
   if(n>0)
   {
-   cout << "True" << "\n" << n << endl; 
+   cout << "True" <<  endl;
   }
   if(n==0)
   {
-   cout << "False" << endl; 
+   cout << "False" << endl;
   }
 
   return ;
@@ -136,7 +140,7 @@ void length()
     l++;
     temp = temp -> next;
   }
-  cout << l;
+  cout << l<<endl;
   return ;
 }
 void print()
@@ -182,3 +186,4 @@ int main(void)
   }
  }
 }
+
